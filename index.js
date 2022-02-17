@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const generateLicense = require('./utils/generateLicense');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
+// Questions for user
 const questions = [
     {
         type: 'input',
@@ -97,7 +97,7 @@ function init() {
     .then(answers => {
         return generateLicense(answers);
     })
-    .then(answers => {
+    /*.then(answers => {
         return generateMarkdown(answers);
     })
     .then(pageMarkdown => {
@@ -105,7 +105,7 @@ function init() {
     })
     .then(writeResponse => {
         console.log(writeResponse);
-    })
+    }) */
     .catch(err => {
         console.log(err);
     });
