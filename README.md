@@ -40,6 +40,8 @@ Use node to run the index file.
 
 Answer the prompts for questions to populate the README.  Optional prompts that are skipped will have that section removed from the README.
 
+Walkthrough video found here: https://drive.google.com/file/d/1Y9FiYwi5Jjwce-CXQ6w2hH4HDoQL5tq_/view
+
     
 
 ## License

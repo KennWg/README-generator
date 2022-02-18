@@ -26,19 +26,19 @@
 
 ## About the Project
 
-It generates READMEs based on user input.
+It generates READMEs based on user prompts.
 
     
 
 ## Installation Information
 
-Use node to run the index file.
+Run node on index file.
 
     
 
 ## Usage Guide
 
-Answer the prompts for questions to populate the README.  Optional prompts that are skipped will have that section removed from the README.
+Answer prompts
 
     
 
@@ -52,13 +52,13 @@ Link to license [here](./dist/license.txt).
 
 ## How to Contribute
 
-No guidelines
+None at the moment
 
     
 
 ## Tests
 
-None
+No tests
     
 
 ## Questions {#questions}
