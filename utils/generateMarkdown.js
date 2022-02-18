@@ -20,7 +20,7 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   if(license!='None of the Above'){
     return `
-    Link to license [here](./dist/license.txt).  
+Link to license [here](./dist/license.txt).  
     `
   } else {
     return '';
@@ -32,9 +32,9 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   if(license!='None of the Above'){
     return `
-    ## License {#license}
+## License {#license}
 
-    This project is licensed under the ${license} license, for further information please go to the link below:   
+This project is licensed under the ${license} license, for further information please go to the link below:   
     `
   } else {
     return '';
@@ -45,29 +45,43 @@ function renderLicenseSection(license) {
 const genToc = data => {
   let markup = `
 
-  ## Table of Contents
+## Table of Contents
   
   `;
 
   if(data.description){
-    markup += `[About the Project](#description)  `;
+    markup += `
+[About the Project](#description)  
+    `;
   }
   if(data.install){
-    markup += `[Installation Information](#installation)  `;
+    markup += `
+[Installation Information](#installation)  
+    `;
   }
   if(data.usage){
-    markup += `[Usage Guide](#usage)  `;
+    markup += `
+[Usage Guide](#usage)  
+    `;
   }
   if(data.license != 'None of the Above'){
-    markup += `[License](#license)  `;
+    markup += `
+[License](#license)  
+    `;
   }
   if(data.contributing){
-    markup += `[How to Contribute](#contributing)  `;
+    markup += `
+[How to Contribute](#contributing)  
+    `;
   }
   if(data.tests){
-    markup += `[Tests](#tests)`;
+    markup += `
+[Tests](#tests)  
+    `;
   }
-  markup += `[Questions](#questions)`;
+  markup += `
+[Questions](#questions)  
+  `;
   return markup;
 };
 
@@ -75,9 +89,9 @@ const genToc = data => {
 const genDesc = data => {
   if(data.description){
     return `
-    ## About the Project {#description}
+## About the Project {#description}
 
-    ${data.description}
+${data.description}
 
     `
   } else {
@@ -89,9 +103,9 @@ const genDesc = data => {
 const genInst = data => {
   if(data.install){
     return `
-    ## Installation Information {#installation}
+## Installation Information {#installation}
 
-    ${data.install}
+${data.install}
 
     `
   } else {
@@ -103,9 +117,9 @@ const genInst = data => {
 const genUse = data => {
   if(data.usage){
     return `
-    ## Usage Guide {#usage}
+## Usage Guide {#usage}
 
-    ${data.usage}
+${data.usage}
 
     `
   } else {
@@ -117,9 +131,9 @@ const genUse = data => {
 const genCont = data => {
   if(data.contributing){
     return `
-    ## How to Contribute {#contributing}
+## How to Contribute {#contributing}
 
-    ${data.contributing}
+${data.contributing}
 
     `
   } else {
@@ -131,9 +145,9 @@ const genCont = data => {
 const genTest = data => {
   if(data.tests){
     return `
-    ## Tests {#tests}
+## Tests {#tests}
 
-    ${data.tests}
+${data.tests}
     `
   } else {
     return ''
@@ -160,7 +174,7 @@ ${genTest(data)}
 ## Questions {#questions}
 
 For any further questions, you can find me at: [${data.username}](https://github.com/${data.username})  
-or email me with further questions at ${data.username}.
+or email me with further questions at ${data.email}.
 
 `;
 }
