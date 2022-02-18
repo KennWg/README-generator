@@ -20,7 +20,7 @@ function renderLicenseBadge(license) {
 function renderLicenseLink(license) {
   if(license!='None of the Above'){
     return `
-    Link to license [here](./dist/license.txt).
+    Link to license [here](./dist/license.txt).  
     `
   } else {
     return '';
@@ -32,22 +32,137 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   if(license!='None of the Above'){
     return `
+    ## License {#license}
+
     This project is licensed under the ${license} license, for further information please go to the link below:   
     `
+  } else {
+    return '';
   }
 }
 
-// TODO: Create a function to generate markdown for README
+//Function to generate table of contents
+const genToc = data => {
+  let markup = `
+
+  ## Table of Contents
+  
+  `;
+
+  if(data.description){
+    markup += `[About the Project](#description)  `;
+  }
+  if(data.install){
+    markup += `[Installation Information](#installation)  `;
+  }
+  if(data.usage){
+    markup += `[Usage Guide](#usage)  `;
+  }
+  if(data.license != 'None of the Above'){
+    markup += `[License](#license)  `;
+  }
+  if(data.contributing){
+    markup += `[How to Contribute](#contributing)  `;
+  }
+  if(data.tests){
+    markup += `[Tests](#tests)`;
+  }
+  markup += `[Questions](#questions)`;
+  return markup;
+};
+
+//Function for description
+const genDesc = data => {
+  if(data.description){
+    return `
+    ## About the Project {#description}
+
+    ${data.description}
+
+    `
+  } else {
+    return ''
+  }
+};
+
+//Function for install
+const genInst = data => {
+  if(data.install){
+    return `
+    ## Installation Information {#installation}
+
+    ${data.install}
+
+    `
+  } else {
+    return ''
+  }
+};
+
+//Function for usage
+const genUse = data => {
+  if(data.usage){
+    return `
+    ## Usage Guide {#usage}
+
+    ${data.usage}
+
+    `
+  } else {
+    return ''
+  }
+};
+
+//Function for contribute
+const genCont = data => {
+  if(data.contributing){
+    return `
+    ## How to Contribute {#contributing}
+
+    ${data.contributing}
+
+    `
+  } else {
+    return ''
+  }
+};
+
+//Function for tests
+const genTest = data => {
+  if(data.tests){
+    return `
+    ## Tests {#tests}
+
+    ${data.tests}
+    `
+  } else {
+    return ''
+  }
+};
+
+// Function to generate markdown for README
 function generateMarkdown(data) {
   return `
-  # ${data.title}
+
+# ${data.project}  
+
+![Badge for License](${renderLicenseBadge(data.license)})
+
+${genToc(data)}
+${genDesc(data)}
+${genInst(data)}
+${genUse(data)}
+${renderLicenseSection(data.license)}
+${renderLicenseLink(data.license)}
+${genCont(data)}
+${genTest(data)}
+
+## Questions {#questions}
+
+For any further questions, you can find me at: [${data.username}](https://github.com/${data.username})  
+or email me with further questions at ${data.username}.
 
 `;
 }
-/*
-console.log(renderLicenseBadge('MIT'));
-console.log(renderLicenseLink('MIT'));
-console.log(renderLicenseSection('MIT'));
-*/
 
 module.exports = generateMarkdown;

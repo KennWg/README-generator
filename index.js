@@ -88,8 +88,15 @@ function promptUser() {
     return inquirer.prompt(questions);
 }
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// Function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if(err){
+            throw err;
+        }
+        console.log("README generated.")
+    });
+};
 
 // Function to start app
 function init() {
@@ -97,15 +104,12 @@ function init() {
     .then(answers => {
         return generateLicense(answers);
     })
-    /*.then(answers => {
+    .then(answers => {
         return generateMarkdown(answers);
     })
     .then(pageMarkdown => {
-        return writeToFile('./dist/README.md',pageMarkdown);
-    })
-    .then(writeResponse => {
-        console.log(writeResponse);
-    }) */
+        writeToFile('./dist/README.md',pageMarkdown);
+    }) 
     .catch(err => {
         console.log(err);
     });
