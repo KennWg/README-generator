@@ -32,7 +32,7 @@ Link to license [here](./dist/license.txt).
 function renderLicenseSection(license) {
   if(license!='None of the Above'){
     return `
-## License {#license}
+## License
 
 This project is licensed under the ${license} license, for further information please go to the link below:   
     `
@@ -51,17 +51,17 @@ const genToc = data => {
 
   if(data.description){
     markup += `
-[About the Project](#description)  
+[About the Project](#about-the-project)  
     `;
   }
   if(data.install){
     markup += `
-[Installation Information](#installation)  
+[Installation Information](#installation-information)  
     `;
   }
   if(data.usage){
     markup += `
-[Usage Guide](#usage)  
+[Usage Guide](#usage-guide)  
     `;
   }
   if(data.license != 'None of the Above'){
@@ -71,7 +71,7 @@ const genToc = data => {
   }
   if(data.contributing){
     markup += `
-[How to Contribute](#contributing)  
+[How to Contribute](#how-to-contribute)  
     `;
   }
   if(data.tests){
@@ -89,7 +89,7 @@ const genToc = data => {
 const genDesc = data => {
   if(data.description){
     return `
-## About the Project {#description}
+## About the Project
 
 ${data.description}
 
@@ -103,7 +103,7 @@ ${data.description}
 const genInst = data => {
   if(data.install){
     return `
-## Installation Information {#installation}
+## Installation Information
 
 ${data.install}
 
@@ -117,7 +117,7 @@ ${data.install}
 const genUse = data => {
   if(data.usage){
     return `
-## Usage Guide {#usage}
+## Usage Guide
 
 ${data.usage}
 
@@ -131,7 +131,7 @@ ${data.usage}
 const genCont = data => {
   if(data.contributing){
     return `
-## How to Contribute {#contributing}
+## How to Contribute
 
 ${data.contributing}
 
@@ -145,7 +145,7 @@ ${data.contributing}
 const genTest = data => {
   if(data.tests){
     return `
-## Tests {#tests}
+## Tests
 
 ${data.tests}
     `
